@@ -2,6 +2,8 @@ package com.example.ale.login;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TabHost;
 
@@ -10,34 +12,32 @@ import android.widget.TabHost;
  */
 
 class Login2 extends AppCompatActivity {
+
+    private TabLayout tabs;
+    private ViewPager vpPrincipal;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.segundapantalla);
 
-        Resources res = getResources();
+        tabs = (TabLayout) findViewById(R.id.tabs);
+        vpPrincipal =(ViewPager) findViewById(R.id.vpPrincipal);
 
-        TabHost tabs=(TabHost)findViewById(android.R.id.tabhost);
-        tabs.setup();
+        crearAdaptador();
+        
+        tabs.setupWithViewPager(vpPrincipal);
 
-        TabHost.TabSpec spec=tabs.newTabSpec("mitab1");
-        spec.setContent(R.id.tab1);
-        spec.setIndicator("",
-                res.getDrawable(android.R.drawable.ic_btn_speak_now));
-        tabs.addTab(spec);
 
-        spec=tabs.newTabSpec("mitab2");
-        spec.setContent(R.id.tab2);
-        spec.setIndicator("",
-                res.getDrawable(android.R.drawable.ic_dialog_map));
-        tabs.addTab(spec);
 
-        spec=tabs.newTabSpec("mitab3");
-        spec.setContent(R.id.tab3);
-        spec.setIndicator("TAB3",
-                res.getDrawable(android.R.drawable.ic_dialog_map));
-        tabs.addTab(spec);
 
-        tabs.setCurrentTab(1);
 
+    }
+
+    private void crearAdaptador() {
+
+        ViewPagerAdapter adapter= new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Fragment1(),"Fragment1");
+        adapter.addFragment(new Fragment2(),"Fragment2");
+        vpPrincipal.setAdapter(adapter);
     }
 }
