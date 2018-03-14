@@ -13,7 +13,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.primerapantalla);
         Button boton = (Button) findViewById(R.id.ingresar);
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
