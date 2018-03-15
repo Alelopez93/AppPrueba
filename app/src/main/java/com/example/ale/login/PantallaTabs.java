@@ -11,7 +11,7 @@ import android.widget.TabHost;
  * Created by Ale on 13/03/2018.
  */
 
-class Login2 extends AppCompatActivity {
+class PantallaTabs extends AppCompatActivity {
 
     private TabLayout tabs;
     private ViewPager vpPrincipal;
@@ -36,8 +36,8 @@ class Login2 extends AppCompatActivity {
     private void crearAdaptador() {
 
         ViewPagerAdapter adapter= new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Fragment1(),"Fragment1");
-        adapter.addFragment(new Fragment2(),"Fragment2");
+        adapter.addFragment(new Fragment1(),"Tab1");
+        adapter.addFragment(new Fragment2(),"Tab2");
         vpPrincipal.setAdapter(adapter);
     }
 }

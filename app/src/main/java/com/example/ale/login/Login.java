@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
                 String usuario=  ((EditText)findViewById(R.id.usuariologin)).getText().toString();
                 String password=  ((EditText)findViewById(R.id.passwordlogin)).getText().toString();
                 if (usuario.equals("admin")&&password.equals("admin")){
-                    Intent nuevoform= new Intent(Login.this,Login2.class);
+                    Intent nuevoform= new Intent(Login.this,PantallaTabs.class);
                     startActivity(nuevoform);
 
                 }
